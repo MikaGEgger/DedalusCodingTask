@@ -131,35 +131,37 @@
       />
       <h2>{{ title }}</h2>
       <p>
-        <label [for]="textToBeAnalyzed">Enter Text to be analyzed: </label>
-        <input [name]="textToBeAnalyzed"/>
+        <label>Enter Text to be analyzed: </label>
+        <input onkeyup="onTextUpdated()" [(ngModel)]="textToBeAnalyzed" />
       </p>
       <p>
         <mat-radio-group> Analyze vowels or consonants?<br>
-          <mat-radio-button value="1">Vowels</mat-radio-button>
-          <mat-radio-button value="2">Consonants</mat-radio-button>
+          <mat-radio-button value="Vowels" (change)="onVowelRadioCheck($event.value)">Vowels</mat-radio-button>
+          <mat-radio-button value="Consonants" (change)="onVowelRadioCheck($event.value)">Consonants</mat-radio-button>
         </mat-radio-group>
       </p>
-      <button mat-stroked-button>Analyze</button>
+      <p>
 
-      <mat-form-field >
-        <mat-label>Results:</mat-label>
-        <textarea #autosize="cdkTextareaAutosize"
-                  cdkAutosizeMaxRows="15"
-                  cdkAutosizeMinRows="1"
-                  cdkTextareaAutosize
-                  matInput></textarea>
-      </mat-form-field>
+        <mat-radio-group> Local or remote check?<br>
+          <mat-radio-button value="Local" (change)="onRemoteRadioCheck($event.value)">Local</mat-radio-button>
+          <mat-radio-button value="Remote" (change)="onRemoteRadioCheck($event.value)">Remote</mat-radio-button>
+        </mat-radio-group>
+      </p>
+<!-- TODO: TOGGLE BUTTON AND REMOVE CHECKS-->
+      <button mat-stroked-button (click)="onAnalyzeButtonClick()" [disabled]="!vowelRadioChecked|| !remoteRadioChecked">Analyze</button>
+      <input disabled="true" [(ngModel)]="vowelCheckValue" />
+      <input disabled="true" [(ngModel)]="remoteCheckValue" />
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <mat-form-field >
-        <mat-label>Results:</mat-label>
-        <textarea #autosize="cdkTextareaAutosize"
-                  cdkAutosizeMaxRows="15"
-                  cdkAutosizeMinRows="1"
-                  cdkTextareaAutosize
-                  matInput></textarea>
+        <label><h3>Results:</h3></label>
+        <ng-container >
+          <tr *ngFor="let result of results">
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+          </tr>
+        </ng-container>
       </mat-form-field>
     </div>
   </div>
