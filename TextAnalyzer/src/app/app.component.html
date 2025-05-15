@@ -1,0 +1,170 @@
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * Adapted from Angular sample source. * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<style>
+  :host {
+    --ded_green: oklch(197 232 108);
+    --ded_lightBlue: oklch(58.5 30.8 229.4);
+    --ded_dark_blue: oklch(45.3 24.9 228.8);
+    --ded_gray: oklch(79.2 3.1 180);
+
+
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    --ded_vertical_gradient: linear-gradient(
+      180deg,
+      var(--ded_dark_blue) 0%,
+      var(--ded_lightBlue) 50%,
+      var(--ded_green) 100%
+    );
+
+    --ded_horizontal_gradient: linear-gradient(
+      90deg,
+      var(--ded_dark_blue) 0%,
+      var(--ded_lightBlue) 50%,
+      var(--ded_green) 100%
+    );
+
+
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+
+  label {
+    color: var(--gray-700);
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  .logo {
+    max-width: 9.2rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+  .content h1 {
+    margin-top: 1.75rem;
+  }
+
+  .content p {
+    margin-top: 1.5rem;
+  }
+
+  .content input{
+    margin-top: 1.5rem;
+  }
+
+  .divider {
+    width: 1px;
+    background: var(--ded_vertical_gradient);
+    margin-inline: 0.5rem;
+  }
+
+
+
+
+
+  @media screen and (max-width: 650px) {
+    .content {
+      flex-direction: column;
+      width: max-content;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: var(--ded_horizontal_gradient);
+      margin-block: 1.5rem;
+    }
+  }
+</style>
+
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <img
+        alt="Logo"
+        class="logo"
+        height="127.2"
+        ngSrc="Dedalus.svg"
+        width="375.2"
+      />
+      <h2>{{ title }}</h2>
+      <p>
+        <label [for]="textToBeAnalyzed">Enter Text to be analyzed: </label>
+        <input [name]="textToBeAnalyzed"/>
+      </p>
+      <p>
+        <mat-radio-group> Analyze vowels or consonants?<br>
+          <mat-radio-button value="1">Vowels</mat-radio-button>
+          <mat-radio-button value="2">Consonants</mat-radio-button>
+        </mat-radio-group>
+      </p>
+      <button mat-stroked-button>Analyze</button>
+
+      <mat-form-field >
+        <mat-label>Results:</mat-label>
+        <textarea #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMaxRows="15"
+                  cdkAutosizeMinRows="1"
+                  cdkTextareaAutosize
+                  matInput></textarea>
+      </mat-form-field>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <mat-form-field >
+        <mat-label>Results:</mat-label>
+        <textarea #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMaxRows="15"
+                  cdkAutosizeMinRows="1"
+                  cdkTextareaAutosize
+                  matInput></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</main>
+
+
+
+<router-outlet />
