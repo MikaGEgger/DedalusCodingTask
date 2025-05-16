@@ -1,10 +1,10 @@
-package com.example.textanalyzerbackend;
+package com.mikaG.textanalyzerbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TextAnalyzerBackendApplicationTests {
+class TextAnalyzerControllerBackendApplicationTests {
 
     @Test
     void contextLoads() {

@@ -32,3 +32,5 @@ FrontEnd/TextAnalyzer/node_modules
 /Backend/.gradle
 /Backend/.gradle
 /FrontEnd/.idea
+/Backend/.gradle
+*.bin

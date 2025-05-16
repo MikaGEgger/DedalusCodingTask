@@ -38,7 +38,6 @@ export class TextAnalyzer{
         characterMap.delete(character);
       });
     }
-
     return characterMap;
   }
 

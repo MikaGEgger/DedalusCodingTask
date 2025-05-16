@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {NgForOf, NgOptimizedImage} from '@angular/common';
 import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
@@ -7,6 +7,10 @@ import {TextAnalyzer} from './textLogic/textAnalyzer';
 import {TextAnalyzerResult} from './textLogic/textAnalyzerResult';
 import {FormsModule} from '@angular/forms';
 import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {AnalyzerService} from './textAnalyzer.service';
+import {HttpClient} from '@angular/common/http';
+
+
 
 
 @Component({
@@ -29,6 +33,12 @@ export class AppComponent {
   results: TextAnalyzerResult [] = [];
   resultDetails: string[] = [];
 
+  analyzerService: AnalyzerService;
+
+  constructor() {
+    this.analyzerService= new AnalyzerService(inject(HttpClient));
+  }
+
 
   onVowelRadioCheck(value: any) {
     this.vowelRadioChecked = true;
@@ -36,12 +46,16 @@ export class AppComponent {
   }
 
   onAnalyzeButtonClick() {
+    let checkVowels = this.vowelCheckValue == "Vowels";
     if (this.remoteCheck) {
-      //TODO: Add Remote Check.
-    }
+      this.analyzerService.analyzeText(this.textToBeAnalyzed, checkVowels).subscribe(data => this.addResultToResultList(data));    }
     else {
-      this.results.unshift(this.textAnalyzer.analyzeText(this.textToBeAnalyzed, this.vowelCheckValue == "Vowels"));
+      this.addResultToResultList(this.textAnalyzer.analyzeText(this.textToBeAnalyzed, checkVowels));
     }
+  }
+
+  private addResultToResultList(result: TextAnalyzerResult) {
+    this.results.unshift(result);
     this.fillResultDetails(this.results[0].results);
   }
 
@@ -55,5 +69,7 @@ export class AppComponent {
   onCalcToggleChanged(event: MatSlideToggleChange) {
     this.remoteCheck = event.checked;
   }
+
+
 }
 

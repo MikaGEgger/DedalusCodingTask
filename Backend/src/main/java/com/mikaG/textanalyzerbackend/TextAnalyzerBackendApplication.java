@@ -1,4 +1,4 @@
-package com.example.textanalyzerbackend;
+package com.mikaG.textanalyzerbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,4 +10,7 @@ public class TextAnalyzerBackendApplication {
         SpringApplication.run(TextAnalyzerBackendApplication.class, args);
     }
 
+
 }
+
+
