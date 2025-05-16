@@ -28,3 +28,7 @@ replay_pid*
 FrontEnd/TextAnalyzer/.angular/cache
 FrontEnd/TextAnalyzer/.idea
 FrontEnd/TextAnalyzer/node_modules
+/Backend/.gradle
+/Backend/.gradle
+/Backend/.gradle
+/FrontEnd/.idea

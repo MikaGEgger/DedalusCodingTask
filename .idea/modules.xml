@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DedalusCodingTask.iml" filepath="$PROJECT_DIR$/.idea/DedalusCodingTask.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TextAnalyzer/TextAnalyzer.iml" filepath="$PROJECT_DIR$/TextAnalyzer/TextAnalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/src/main/main.iml" filepath="$PROJECT_DIR$/Backend/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/src/test/test.iml" filepath="$PROJECT_DIR$/Backend/src/test/test.iml" />
     </modules>
   </component>
 </project>

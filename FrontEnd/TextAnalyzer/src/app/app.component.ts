@@ -37,8 +37,9 @@ export class AppComponent {
 
   onAnalyzeButtonClick() {
     if (this.remoteCheck) {
-//TODO: Add Remote Check.
-    } else {
+      //TODO: Add Remote Check.
+    }
+    else {
       this.results.unshift(this.textAnalyzer.analyzeText(this.textToBeAnalyzed, this.vowelCheckValue == "Vowels"));
     }
     this.fillResultDetails(this.results[0].results);
