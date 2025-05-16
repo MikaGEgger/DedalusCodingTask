@@ -23,6 +23,8 @@
 hs_err_pid*
 replay_pid*
 /.idea
-/TextAnalyzer/.angular/cache
-/TextAnalyzer/.idea
-/TextAnalyzer/node_modules
+
+# Temp Folders and modules
+FrontEnd/TextAnalyzer/.angular/cache
+FrontEnd/TextAnalyzer/.idea
+FrontEnd/TextAnalyzer/node_modules
