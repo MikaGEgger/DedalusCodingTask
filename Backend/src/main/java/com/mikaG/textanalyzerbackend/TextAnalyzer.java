@@ -39,6 +39,8 @@ public  class TextAnalyzer {
         }
         else
         {
+            //here we would have a possible Performance bottleneck,
+            //but for the purpose of this demo it is "good enough"
             characterMap.keySet().removeAll(Arrays.asList(vowels));
         }
 

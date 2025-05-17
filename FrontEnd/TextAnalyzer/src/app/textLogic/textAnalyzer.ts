@@ -17,7 +17,7 @@ export class TextAnalyzer{
     let undefinedValue = 0;
 
     //if we search for vowels, we initialize all vowels in the map and only check for them.
-    //Also we set the undefinedValue to e
+    //Also, we set the undefinedValue to -1
     if (vowels) {
       undefinedValue = -1;
       this.vowels.forEach((character) => {

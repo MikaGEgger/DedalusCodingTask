@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     let textAnalyzer = new TextAnalyzer;
     let result =textAnalyzer.analyzeText(text, true);
 
-    /*check if the checkedString is set correctly, if the key 'l' hasnt been incorrectly created
+    /*check if the checkedString is set correctly, if the key 'l' hasn't been incorrectly created
      and if the value of the key 'o' corresponds to the expected number.
      */
     expect(result.checkedString==text);
